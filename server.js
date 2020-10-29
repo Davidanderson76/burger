@@ -16,4 +16,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-
+app.listen(PORT, function() {
+    console.log("App is listening on PORT " + PORT );
+});
