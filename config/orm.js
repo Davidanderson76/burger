@@ -1,10 +1,20 @@
-const connection = require("../config/connection.js");
+const connection = require("../config/connection");
+
+const tableInput = "burgers";
+
+function printQuestionMarks(num) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
+    arr.push("?");
+  }
+  return arr.toString();
+}
 
 //methods need work//
 const orm = {
     selectAll: (tableInput, cb) => {
 
-      let queryString = `SELECT FROM ${ tableInput }`;
+      let queryString = `SELECT * FROM ${ tableInput };`;
 
       connection.query(queryString, ( err, result ) => {
         if (err) throw err;
@@ -24,7 +34,7 @@ const orm = {
 
     updateOne: (tableInput, cols, vals, condition, cb) => {
 
-        let queryString = `UPDATE ${tableInput} SET ${cols.toString()} = ? WHERE ${condition}`;
+        let queryString = `UPDATE ${tableInput} SET ${cols.toString()} = ? WHERE ${condition};`;
 
         connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
