@@ -1,0 +1,69 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  background-repeat: no-repeat;
+  background-size: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 20px;
+  grid-template-areas: "headerSection" "middleSection" "footerSection";
+  grid-row-gap: 10px; }
+  body .center {
+    justify-self: center;
+    align-self: center; }
+  body #headerSection {
+    grid-area: headerSection;
+    background: rgba(192, 107, 121, 0.6);
+    text-align: center;
+    color: black;
+    position: relative;
+    min-height: 100%; }
+
+    body #headerSection h2 {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+
+  body #middleSection {
+    grid-area: middleSection;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "leftMiddle centerMiddle rightMiddle";
+    font-family: 'Anton', sans-serif;
+    color: rgb(182, 74, 80); 
+    font-size: 175%;
+  }
+    body #middleSection .leftMiddle {
+      display: grid;
+      grid-area: leftMiddle;
+      background: url("../img/burgerSm.jpeg");
+      background-repeat:no-repeat;
+      background-position:center top;
+    }
+    body #middleSection .centerMiddle {
+      display: grid;
+      grid-area: centerMiddle;
+      background: url("../img/burgerSm.jpeg");
+      background-position: center;
+    }
+      body #middleSection .rightMiddle {
+      display: grid;
+      grid-area: rightMiddle;
+      background: url("../img/burgerSm.jpeg");
+      background-position: center;
+      background-size: 500px;
+    }
+  body #footerSection {
+    grid-area: footerSection;
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(182, 79, 79);
+   color: black;
+   text-align: left;
+   }

@@ -1,16 +1,26 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "burger app using MySQL, Node, Express, Handlebars, and custom ORM.",
-  "main": "index.js",
+  "description": "Burger eating app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Davidanderson76/burger.git"
   },
-  "author": "",
+  "keywords": [
+    "burger",
+    "app",
+    "mysql",
+    "express",
+    "express",
+    "handlebars",
+    "orm"
+  ],
+  "author": "David Anderson",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Davidanderson76/burger/issues"

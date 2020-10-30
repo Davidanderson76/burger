@@ -1,38 +1,42 @@
-<div id="headerSection">
-    <h2>Eat Thine Burger</h2>
+<div id ="headerSection">
+  <h2>Eat Thine Burger</h2>
 </div>
 
+<!-- Middle Section -->
 <div id="middleSection">
 
-    <div class="leftMiddle">
-        <div class="uneaten center">
-            {{#each burger}}
-                {{#unless devoured}}
-                    {{> burgers/burgerBlock devoured=1}}
-                {{/unless}}
-            {{/each}}
-        </div>
+  <!-- Left  -->
+  <div class="leftMiddle">
+    <div class="uneaten center">
+      {{#each burger}}
+        {{#unless devoured}}
+          {{> burgers/burgerBlock devoured=1}}
+        {{/unless}}
+      {{/each}}
     </div>
+  </div>
 
-    <div class="centerMiddle">
-        <div class="center">
-            <input id="burgerName" type="text" placeholder="Name of your Burger" data-eaten="0">
-            <button id="addBurger" type="button">ADD BURGER</button>
-        </div>
+  <!-- Center -->
+  <div class="centerMiddle">
+    <div class="center">
+      <input id="burgerName" type="text" placeholder="Name of Your Burger" data-eaten="0">
+      <button id="addBurger" type="button">Add Your Burger</button>
     </div>
+  </div>
 
-    <div class="rightMiddle">
-        <div class="eaten center">
-            {{#each burger}}
-                {{#if devoured}}
-                    {{> burgers/burgerBlock devoured=0}}
-                {{/if}}
-            {{/each}}
-        </div>
+  <!-- Right -->
+  <div class="rightMiddle">
+    <div class="eaten center">
+      {{#each burger}}
+        {{#if devoured}}
+          {{> burgers/burgerBlock devoured=0}}
+        {{/if}}
+      {{/each}}
     </div>
+  </div>
 
 </div>
 
-<div id="footerSection">
-    <p>Created by David Anderson</p>
+<div id ="footerSection">
+  <p>Created By David Anderson</p>
 </div>

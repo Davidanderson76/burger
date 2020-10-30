@@ -1,47 +1,51 @@
+// Import MySQL connection.
 const connection = require("../config/connection");
 
-const tableInput = "burgers";
+const tableName = "burgers";
 
 function printQuestionMarks(num) {
-  let arr = [];
-  for (let i = 0; i < num; i++) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
     arr.push("?");
   }
   return arr.toString();
 }
 
-//methods need work//
 const orm = {
-    selectAll: (tableInput, cb) => {
 
-      let queryString = `SELECT * FROM ${ tableInput };`;
+  selectAll : (tableName,callback) => {
 
-      connection.query(queryString, ( err, result ) => {
-        if (err) throw err;
-        cb(result);
-      });
-    },
+    let queryStatement = `SELECT * FROM ${tableName};`;
 
-    insertOne: (tableInput,cols,vals,cb) => {
-      
-      let queryString = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
+    connection.query(queryStatement, (err, result)=>{
+      if (err) throw err;
+      callback(result);
+    });
 
-      connection.query(queryString, vals, (err, result) => {
-          if (err) throw err;
-          cb(result);
-      });
-    },
+  },
 
-    updateOne: (tableInput, cols, vals, condition, cb) => {
+  insertOne: (tableName, cols, vals, callback) => {
 
-        let queryString = `UPDATE ${tableInput} SET ${cols.toString()} = ? WHERE ${condition};`;
+    let queryStatement = `INSERT INTO  ${tableName} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
 
-        connection.query(queryString, vals, (err, result) => {
-            if (err) throw err;
-            console.log("Successfully updated!");
-            cb(result);
-        })
-    }    
-  };
-  
-  module.exports = orm;
+    connection.query(queryStatement, vals, (err, result) => {
+      if (err) throw err;
+      console.log("Sucesfully Added");
+      callback(result);
+    });
+
+  },
+
+  updateOne : (tableName, cols, vals, condition, callback) =>{
+
+    let queryStatement = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
+
+    connection.query(queryStatement, vals, (err, result) => {
+      if (err) throw err;
+      console.log("Sucesfully Updated");
+      console.log("Executing Third Declared CallBack");
+      callback(result);
+    });
+  }
+}
+module.exports = orm;
